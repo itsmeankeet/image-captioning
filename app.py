@@ -16,7 +16,7 @@ from tensorflow.keras.layers import TextVectorization
 # Define the custom standardization function
 def custom_standardization(input_string):
     lowercase = tf.strings.lower(input_string)
-    strip_chars = "!\"#$%&'()*+,-./:;=?@[\]^_`{|}~1234567890"
+    strip_chars = r"!\"#$%&'()*+,-./:;=?@[\]^_`{|}~1234567890"
     return tf.strings.regex_replace(lowercase, "[%s]" % re.escape(strip_chars), "")
 
 # Load the vectorizer from saved config and vocab
